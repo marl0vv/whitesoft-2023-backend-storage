@@ -10,13 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ServiceTest {
 
-    @Mock
-    private Storage storage;
-
-    @BeforeEach
-    public void setUp(){
-        storage = new Storage("./src/test/resources/inputData.json");
-    }
+    private Storage storage = new Storage("./src/test/resources/inputData.json");
 
     @Test
     void testFindById(){

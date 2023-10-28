@@ -23,7 +23,6 @@ public class InputTest {
 
         Entry expectedEntry = new Entry(1, "The Shape of Punk To Come", "Hardcore punk", "https://en.wikipedia.org/wiki/The_Shape_of_Punk_to_Come");
         Entry actualEntry = storage.get(1);
-        assertNotNull(actualEntry);
         assertEquals(expectedEntry, actualEntry);
     }
 }
