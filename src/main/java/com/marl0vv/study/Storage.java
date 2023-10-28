@@ -16,10 +16,11 @@ public class Storage {
     public List<Entry> findByName(String name){
         List<Entry> matchingEntries = new ArrayList<>();
         for(Entry entry : storage.values()){
-            if (entry.name().toLowerCase().contains(name)){
+            if (entry.getName().toLowerCase().contains(name)){
                 matchingEntries.add(entry);
             }
         }
         return matchingEntries;
     }
+
 }

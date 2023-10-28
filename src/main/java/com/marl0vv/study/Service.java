@@ -16,7 +16,8 @@ public class Service {
 
             Entry entry = storage.findByIdOrNull(id);
             if (entry != null) {
-                System.out.println("\n" + entry);
+                System.out.println("\n");
+                entry.printEntry();
             } else {
                 System.out.println("\nNo entry found with id " + id);
             }
@@ -35,7 +36,7 @@ public class Service {
         if (!matchingEntries.isEmpty())
         {
             System.out.println("\nMatching entries:");
-            matchingEntries.forEach(System.out::println);
+            matchingEntries.forEach(Entry::printEntry);
         } else {
             System.out.println("\nNo matching entries found.");
         }

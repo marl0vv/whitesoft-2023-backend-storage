@@ -24,7 +24,7 @@ public class ServiceTest {
         Entry actualEntry = storage.findByIdOrNull(testId);
 
         assertNotNull(actualEntry);
-        assertEquals("Southern Air", actualEntry.name());
+        assertEquals("Southern Air", actualEntry.getName());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ServiceTest {
 
         assertNotNull(matchingEntries);
         for(Entry entry : matchingEntries){
-            assertTrue(entry.name().toLowerCase().contains(testName.toLowerCase()));
+            assertTrue(entry.getName().toLowerCase().contains(testName.toLowerCase()));
         }
     }
 

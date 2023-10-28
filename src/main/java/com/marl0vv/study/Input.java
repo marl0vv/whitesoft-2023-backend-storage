@@ -25,13 +25,13 @@ public class Input {
     private static void addEntriesToStorage(List<Entry> entries, Map<Integer, Entry> storage) {
         int nextId = 1;
         for (Entry entry : entries) {
-            if (entry.id() == 0 || storage.containsKey(entry.id())) {
+            if (entry.getId() == 0 || storage.containsKey(entry.getId())) {
                 int newId = generateUniqueID(storage, nextId);
-                Entry updatedEntry = entry.changeId(newId);
-                storage.put(newId, updatedEntry);
+                entry.setId(newId);
+                storage.put(newId, entry);
                 nextId = newId + 1;
-            } else if (!storage.containsKey(entry.id())) {
-                storage.put(entry.id(), entry);
+            } else if (!storage.containsKey(entry.getId())) {
+                storage.put(entry.getId(), entry);
             }
         }
     }
