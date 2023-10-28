@@ -6,7 +6,7 @@ import java.util.Map;
 public class Storage {
     private Map<Integer, Entry> storage;
     public Storage(String filePath){
-        this.storage = Input.readFromFile("./src/main/resources/inputData.json");
+        this.storage = Input.readFromFile(filePath);
     }
 
     public Entry findByIdOrNull(int id){
