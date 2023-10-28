@@ -53,8 +53,7 @@ public class Service {
 
             int optionChoice;
             if (sc.hasNextInt()){
-                optionChoice = sc.nextInt();
-                sc.nextLine(); // Consume the newline character
+                optionChoice = Integer.parseInt(sc.nextLine());
             } else {
                 System.out.println("Invalid input. Please enter a valid option.");
                 sc.nextLine(); // Consume the invalid input
