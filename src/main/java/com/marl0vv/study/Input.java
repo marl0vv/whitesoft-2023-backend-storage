@@ -28,7 +28,7 @@ public class Input {
             if (entry.id() == 0 || storage.containsKey(entry.id())) {
                 int newId = generateUniqueID(storage, nextId);
                 Entry updatedEntry = entry.changeId(newId);
-                storage.put(nextId, updatedEntry);
+                storage.put(newId, updatedEntry);
                 nextId = newId + 1;
             } else if (!storage.containsKey(entry.id())) {
                 storage.put(entry.id(), entry);
