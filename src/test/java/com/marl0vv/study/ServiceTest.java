@@ -1,17 +1,21 @@
 package com.marl0vv.study;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 public class ServiceTest {
 
-    private Storage storage = new Storage("./src/test/resources/inputData.json");
-
+    private Storage storage;
+    @BeforeAll
+    void setupStorage(){
+        storage.initializeStorage("./src/test/resources/inputData.json");
+    }
     @Test
     void testFindById(){
         int testId = 3;

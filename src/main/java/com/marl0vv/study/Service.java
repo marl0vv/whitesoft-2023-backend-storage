@@ -1,8 +1,12 @@
 package com.marl0vv.study;
 
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 
-public class Service {
+@Component
+public class Service implements CommandLineRunner {
     private Storage storage;
     public Service(Storage storage){
         this.storage = storage;
@@ -41,7 +45,9 @@ public class Service {
             System.out.println("\nNo matching entries found.");
         }
     }
-    public void run(){
+
+    @Override
+    public void run(String... args){
         System.out.println("Hello! Welcome to storage!");
         Scanner sc = new Scanner(System.in);
         while (true){

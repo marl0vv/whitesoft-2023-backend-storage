@@ -1,14 +1,21 @@
 package com.marl0vv.study;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+@Component
 public class Storage {
     private Map<Integer, Entry> storage;
-    public Storage(String filePath){
-        this.storage = Input.readFromFile(filePath);
+
+    public Storage(){
     }
 
+    public void initializeStorage(String filePath) {
+        this.storage = Input.readFromFile(filePath);
+    }
     public Entry findByIdOrNull(int id){
         return storage.get(id);
     }
