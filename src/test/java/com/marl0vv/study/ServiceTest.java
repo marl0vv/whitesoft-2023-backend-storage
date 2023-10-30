@@ -12,12 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ServiceTest {
 
     private Storage storage = new Storage();
+
     @BeforeAll
-    void setupStorage(){
+    void setupStorage() {
         storage.initializeStorage("./src/test/resources/inputData.json");
     }
+
     @Test
-    void testFindById(){
+    void testFindById() {
         int testId = 3;
         Entry actualEntry = storage.findByIdOrNull(testId);
 
@@ -26,7 +28,7 @@ public class ServiceTest {
     }
 
     @Test
-    void testFindByErrorId(){
+    void testFindByErrorId() {
         int testId = Integer.MIN_VALUE;
         Entry actualEntry = storage.findByIdOrNull(testId);
 
@@ -34,18 +36,18 @@ public class ServiceTest {
     }
 
     @Test
-    void testFindByName(){
+    void testFindByName() {
         String testName = "Shape";
         List<Entry> matchingEntries = storage.findByName(testName);
 
         assertNotNull(matchingEntries);
-        for(Entry entry : matchingEntries){
+        for (Entry entry : matchingEntries) {
             assertTrue(entry.getName().toLowerCase().contains(testName.toLowerCase()));
         }
     }
 
     @Test
-    void testFindByErrorName(){
+    void testFindByErrorName() {
         String testName = "eofaRorRfz";
         List<Entry> matchingEntries = storage.findByName(testName);
 

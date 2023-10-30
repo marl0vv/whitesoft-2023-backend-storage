@@ -8,11 +8,12 @@ import java.util.*;
 @Component
 public class Service implements CommandLineRunner {
     private Storage storage;
-    public Service(Storage storage){
+
+    public Service(Storage storage) {
         this.storage = storage;
     }
-    public void showEntry()
-    {
+
+    public void showEntry() {
         try {
             System.out.print("Enter id of the entry: ");
             Scanner sc = new Scanner(System.in);
@@ -25,20 +26,18 @@ public class Service implements CommandLineRunner {
             } else {
                 System.out.println("\nNo entry found with id " + id);
             }
-        } catch (InputMismatchException exception)
-        {
+        } catch (InputMismatchException exception) {
             System.err.println("Invalid input. Please enter a valid integer.");
         }
     }
-    public void findEntry()
-    {
+
+    public void findEntry() {
         System.out.print("Enter name of the entry: ");
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine().toLowerCase();
 
         List<Entry> matchingEntries = storage.findByName(name);
-        if (!matchingEntries.isEmpty())
-        {
+        if (!matchingEntries.isEmpty()) {
             System.out.println("\nMatching entries:");
             matchingEntries.forEach(Entry::printEntry);
         } else {
@@ -47,10 +46,10 @@ public class Service implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args){
+    public void run(String... args) {
         System.out.println("Hello! Welcome to storage!");
         Scanner sc = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("\nMenu:");
             System.out.println("1 - Show entry by id");
             System.out.println("2 - Find entry by name");
@@ -58,14 +57,14 @@ public class Service implements CommandLineRunner {
             System.out.print("Choose option: ");
 
             int optionChoice;
-            if (sc.hasNextInt()){
+            if (sc.hasNextInt()) {
                 optionChoice = Integer.parseInt(sc.nextLine());
             } else {
                 System.out.println("Invalid input. Please enter a valid option.");
                 sc.nextLine(); // Consume the invalid input
                 continue;
             }
-            switch (optionChoice){
+            switch (optionChoice) {
                 case 1:
                     showEntry();
                     break;

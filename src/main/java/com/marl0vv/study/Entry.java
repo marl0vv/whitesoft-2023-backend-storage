@@ -1,15 +1,12 @@
 package com.marl0vv.study;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Entry{
+public class Entry {
     private int id;
     private String name;
     private String description;
@@ -20,8 +17,8 @@ public class Entry{
     }
 
     @Override
-    public boolean equals(Object object){
-        if (this == object){
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
         if (object == null)

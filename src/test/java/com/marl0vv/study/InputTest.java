@@ -3,6 +3,7 @@ package com.marl0vv.study;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InputTest {
@@ -11,6 +12,7 @@ public class InputTest {
         Map<Integer, Entry> storage = Input.readFromFile("./src/test/resources/inputData.json");
         assertFalse(storage.isEmpty());
     }
+
     @Test
     public void testReadFromFileInvalidFile() {
         Map<Integer, Entry> storage = Input.readFromFile("nonExistentFile.json");

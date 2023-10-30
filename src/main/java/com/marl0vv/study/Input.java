@@ -35,12 +35,14 @@ public class Input {
             }
         }
     }
+
     public static Map<Integer, Entry> readFromFile(String filePath) {
         Map<Integer, Entry> storage = new HashMap<>();
         Gson gson = new Gson();
         try {
             JsonReader reader = new JsonReader(new FileReader(filePath));
-            Type listType = new TypeToken<List<Entry>>() {}.getType();
+            Type listType = new TypeToken<List<Entry>>() {
+            }.getType();
             List<Entry> entries = gson.fromJson(reader, listType);
 
             addEntriesToStorage(entries, storage);

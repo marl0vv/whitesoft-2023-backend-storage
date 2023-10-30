@@ -19,9 +19,9 @@ public class Main {
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
-    public CommandLineRunner setupData(Storage storage){
+    public CommandLineRunner setupData(Storage storage) {
         return args -> {
-          storage.initializeStorage(inputDataPath);
+            storage.initializeStorage(inputDataPath);
         };
     }
 
