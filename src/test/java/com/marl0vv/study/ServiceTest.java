@@ -2,16 +2,16 @@ package com.marl0vv.study;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ServiceTest {
 
-    private Storage storage;
+    private Storage storage = new Storage();
     @BeforeAll
     void setupStorage(){
         storage.initializeStorage("./src/test/resources/inputData.json");
