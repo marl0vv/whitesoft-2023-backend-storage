@@ -2,8 +2,7 @@ package com.marl0vv.study;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Entry {
@@ -14,21 +13,5 @@ public class Entry {
 
     public void printEntry() {
         System.out.println("Id: " + id + "; Name: " + name + "; Description: " + description + "; Link: " + link);
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (object == null)
-            return false;
-        if (getClass() != object.getClass())
-            return false;
-        Entry other = (Entry) object;
-        return this.id == other.id
-                && this.name.equals(other.name)
-                && this.description.equals(other.description)
-                && this.link.equals(other.link);
     }
 }
