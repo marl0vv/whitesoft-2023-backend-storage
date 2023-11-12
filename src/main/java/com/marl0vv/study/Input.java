@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import java.lang.reflect.Type;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class Input {
     private static int generateUniqueID(Map<Integer, Entry> storage, int startingId) {
@@ -38,13 +37,10 @@ public class Input {
 
     public static Map<Integer, Entry> readFromFile(String filePath) {
         Map<Integer, Entry> storage = new HashMap<>();
-        Gson gson = new Gson();
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            JsonReader reader = new JsonReader(new FileReader(filePath));
-            Type listType = new TypeToken<List<Entry>>() {
-            }.getType();
-            List<Entry> entries = gson.fromJson(reader, listType);
-
+            List<Entry> entries = mapper.readValue(new FileReader(filePath), new TypeReference<>() {
+            });
             addEntriesToStorage(entries, storage);
             return storage;
         } catch (IOException exception) {
