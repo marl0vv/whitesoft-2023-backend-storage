@@ -54,9 +54,9 @@ public class ServiceTest {
 
         //Assert
         assertNotNull(matchingEntries);
-        for (Entry entry : matchingEntries) {
-            assertTrue(entry.getName().toLowerCase().contains(testName.toLowerCase()));
-        }
+        assertEquals(2, matchingEntries.size());
+        assertTrue(matchingEntries.get(0).getName().toLowerCase().contains(testName.toLowerCase()));
+        assertTrue(matchingEntries.get(1).getName().toLowerCase().contains(testName.toLowerCase()));
     }
 
     @Test

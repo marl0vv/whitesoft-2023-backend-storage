@@ -33,7 +33,7 @@ public class Service {
     public void findEntry() {
         System.out.print("Enter name of the entry: ");
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine().toLowerCase();
+        String name = sc.nextLine();
 
         List<Entry> matchingEntries = storage.findByName(name);
         if (!matchingEntries.isEmpty()) {

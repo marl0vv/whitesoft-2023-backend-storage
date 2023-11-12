@@ -1,7 +1,6 @@
 package com.marl0vv.study;
 
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class Storage {
     public List<Entry> findByName(String name) {
         List<Entry> matchingEntries = new ArrayList<>();
         for (Entry entry : storage.values()) {
-            if (entry.getName().toLowerCase().contains(name)) {
+            if (entry.getName().toLowerCase().contains(name.toLowerCase())) {
                 matchingEntries.add(entry);
             }
         }
