@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 @Component
-public class Service implements CommandLineRunner {
+public class Service {
     private Storage storage;
 
     public Service(Storage storage) {
@@ -45,7 +45,6 @@ public class Service implements CommandLineRunner {
         }
     }
 
-    @Override
     public void run(String... args) {
         System.out.println("Hello! Welcome to storage!");
         Scanner sc = new Scanner(System.in);
