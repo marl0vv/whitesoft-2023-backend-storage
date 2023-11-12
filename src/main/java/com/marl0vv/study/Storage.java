@@ -1,5 +1,7 @@
 package com.marl0vv.study;
 
+import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -7,11 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 @Component
+@NoArgsConstructor
 public class Storage {
     private Map<Integer, Entry> storage;
-
-    public Storage() {
-    }
 
     public void initializeStorage(String filePath) {
         this.storage = Input.readFromFile(filePath);
