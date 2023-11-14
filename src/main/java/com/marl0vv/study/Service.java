@@ -1,14 +1,18 @@
 package com.marl0vv.study;
 
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 
+@Component
 public class Service {
     private Storage storage;
-    public Service(Storage storage){
+
+    public Service(Storage storage) {
         this.storage = storage;
     }
-    public void showEntry()
-    {
+
+    public void showEntry() {
         try {
             System.out.print("Enter id of the entry: ");
             Scanner sc = new Scanner(System.in);
@@ -21,30 +25,29 @@ public class Service {
             } else {
                 System.out.println("\nNo entry found with id " + id);
             }
-        } catch (InputMismatchException exception)
-        {
+        } catch (InputMismatchException exception) {
             System.err.println("Invalid input. Please enter a valid integer.");
         }
     }
-    public void findEntry()
-    {
+
+    public void findEntry() {
         System.out.print("Enter name of the entry: ");
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine().toLowerCase();
+        String name = sc.nextLine();
 
         List<Entry> matchingEntries = storage.findByName(name);
-        if (!matchingEntries.isEmpty())
-        {
+        if (!matchingEntries.isEmpty()) {
             System.out.println("\nMatching entries:");
             matchingEntries.forEach(Entry::printEntry);
         } else {
             System.out.println("\nNo matching entries found.");
         }
     }
-    public void run(){
+
+    public void run(String... args) {
         System.out.println("Hello! Welcome to storage!");
         Scanner sc = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("\nMenu:");
             System.out.println("1 - Show entry by id");
             System.out.println("2 - Find entry by name");
@@ -52,14 +55,14 @@ public class Service {
             System.out.print("Choose option: ");
 
             int optionChoice;
-            if (sc.hasNextInt()){
+            if (sc.hasNextInt()) {
                 optionChoice = Integer.parseInt(sc.nextLine());
             } else {
                 System.out.println("Invalid input. Please enter a valid option.");
                 sc.nextLine(); // Consume the invalid input
                 continue;
             }
-            switch (optionChoice){
+            switch (optionChoice) {
                 case 1:
                     showEntry();
                     break;

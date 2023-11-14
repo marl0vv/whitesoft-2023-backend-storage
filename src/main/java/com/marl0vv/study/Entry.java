@@ -1,15 +1,11 @@
 package com.marl0vv.study;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Entry{
+public class Entry {
     private int id;
     private String name;
     private String description;

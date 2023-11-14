@@ -1,9 +1,11 @@
 package com.marl0vv.study;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        Storage storage = new Storage(args[0]);
-        Service service = new Service(storage);
-        service.run();
+        SpringApplication.run(Main.class, args);
     }
 }
