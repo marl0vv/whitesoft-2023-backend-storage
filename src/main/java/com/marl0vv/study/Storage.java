@@ -12,6 +12,8 @@ import java.util.Map;
 public class Storage {
     private Map<Integer, Entry> storage;
 
+    private int nextId = 0;
+
     public void initializeStorage(String filePath) {
         this.storage = Input.readFromFile(filePath);
     }
@@ -30,4 +32,25 @@ public class Storage {
         return matchingEntries;
     }
 
+    public Entry create(Entry entry) {
+        storage.put(entry.getId(), entry);
+        return storage.get(entry.getId());
+    }
+
+    public void update(Entry newEntry, int id){
+        Entry entryToChange = storage.get(id);
+
+        entryToChange.setName(newEntry.getName());
+        entryToChange.setDescription(newEntry.getDescription());
+        entryToChange.setLink(newEntry.getLink());
+
+        storage.put(id, entryToChange);
+    }
+
+    public void delete(Entry entry){
+        storage.remove(entry.getId());
+    }
+    public int getNextId() {
+        return ++nextId;
+    }
 }

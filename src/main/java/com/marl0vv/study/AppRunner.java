@@ -1,5 +1,6 @@
 package com.marl0vv.study;
 
+import com.marl0vv.study.service.Service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +30,6 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Service service = new Service(storage);
-        service.run();
+        // service.run();
     }
 }
