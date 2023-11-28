@@ -50,7 +50,14 @@ public class Storage {
     public void delete(Entry entry){
         storage.remove(entry.getId());
     }
+    //public int getNextId() {
+      //  return ++nextId;
+   // }
+
     public int getNextId() {
-        return ++nextId;
+        while (storage.containsKey(nextId)) {
+            nextId++;
+        }
+        return nextId;
     }
 }
