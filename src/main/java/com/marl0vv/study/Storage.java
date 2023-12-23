@@ -34,7 +34,7 @@ public class Storage {
 
     public Entry create(Entry entry) {
         storage.put(entry.getId(), entry);
-        return storage.get(entry.getId());
+        return entry;
     }
 
     public void update(Entry newEntry, int id){

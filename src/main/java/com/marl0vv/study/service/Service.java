@@ -48,7 +48,6 @@ public class Service {
     }
 
     public void deleteEntryById(int id){
-        storage.delete(Optional.ofNullable(storage.findByIdOrNull(id))
-                .orElseThrow(() -> new NotFoundException("Entry not found")));
+        storage.delete(getEntryById(id));
     }
 }
